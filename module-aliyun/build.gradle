@@ -1,0 +1,14 @@
+apply from: "${gradle.ext.localGradleDir}/config_component.gradle"
+apply plugin: 'com.alipay.apollo.baseline.config'
+
+android {
+    resourcePrefix "aliyun_" //给 Module 内的资源名增加前缀, 避免资源名冲突
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api rootProject.ext.timecat["component-SelfAliyun"]
+    api rootProject.ext.timecat["component-CommonBmob"]
+    api rootProject.ext.timecat["middle-setting"]
+    api rootProject.ext.timecat["middle-image"]
+}
